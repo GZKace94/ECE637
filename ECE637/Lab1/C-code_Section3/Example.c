@@ -56,7 +56,7 @@ int main (int argc, char **argv)
   }
   expend_img.color[k][i][j] = img1[i][j];
   printf("test");
-  printf("test");
+
   }
   for ( i = 0; i < input_img.height; i++ )
   for ( j = 0; j < input_img.width; j++ ) {
