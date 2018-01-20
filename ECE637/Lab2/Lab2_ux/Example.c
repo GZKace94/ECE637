@@ -15,6 +15,7 @@ int main (int argc, char **argv)
   int32_t i,j,pixel;
 
   if ( argc != 2 ) error( argv[0] );
+  printf("test");
 
   /* open image file */
   if ( ( fp = fopen ( argv[1], "rb" ) ) == NULL ) {
