@@ -49,11 +49,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\Lab2_ux\img03.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\Lab2_ux\Makefile" />
   </ItemGroup>
 </Project>
