@@ -18,9 +18,6 @@
     <ClCompile Include="..\..\Lab2_ux\allocate.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Lab2_ux\Example.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Lab2_ux\randlib.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -28,6 +25,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Lab2_ux\tiff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lab2_ux\Example.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
