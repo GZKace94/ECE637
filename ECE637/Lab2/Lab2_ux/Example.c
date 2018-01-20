@@ -147,6 +147,6 @@ void error(char *name)
     printf("and writes out the result as an 8-bit image\n");
     printf("with the name 'green.tiff'.\n");
     printf("It also generates an 8-bit color image,\n");
-    printf("that swaps red and green components from the input image");
+	printf("that swaps red and green components from the input image");
     exit(1);
 }
