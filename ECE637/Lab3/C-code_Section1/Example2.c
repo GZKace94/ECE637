@@ -7,7 +7,7 @@
 #include "subroutines.h"
 
 void error(char *name);
-
+ss
 int main (int argc, char **argv)
 {
   FILE *fp;
