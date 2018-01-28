@@ -1,5 +1,9 @@
 # include "subroutines.h"
 
+#define alloc1d(p, val, num) \
+p = malloc(sizeof(int) * num); \
+memset(p, val, sizeof(int) * num); \
+
 void ConnectedNeighbors(struct pixel s,double T,
                         unsigned char **img,int width,
                         int height,int *M,struct pixel c[4]){
@@ -91,40 +95,62 @@ struct pixel pop(node_t ** head) {
 
 void ConnectedSet(struct pixel s,double T,
                 unsigned char **img,int width,int height,
-                int ClassLabel,uint8_t **seg,
-                int *NumConPixels){
+                int ClassLabel,uint8_t **seg, uint8_t **checkvisit,
+                int *NumConPixels, int *large_area_number){
 struct pixel c[4];
 int neighbor_num;
-int i;
+int i, j, coordheight, coordwidth, n;
 int times = 1;
 struct pixel retrieve;
+int *checkmatrix;
 /* use link list to store */
 node_t * head = NULL;
 node_t * tail = NULL;
+
+n = width * height;
 head = malloc(sizeof(node_t));
-if (head == NULL) {
-        printf("No head!");
-}
 head->val = s;
 head->next = NULL;
 tail = head;
 
-*NumConPixels = 1;
-seg[head->val.m][head->val.n] = ClassLabel;
+alloc1d(checkmatrix, -1, n);
+
+*NumConPixels = 0;
+
+j = 0;
 while (head!= NULL || times ==1 ){
         times = 2;
         ConnectedNeighbors (head->val,T,img,width,height, &neighbor_num, c);
         for (i =0; i < 4; i++){
                 if (c[i].m!=-1 && c[i].m!=-1){
-                        if(seg[c[i].m][c[i].n]!= ClassLabel){
-                                seg[c[i].m][c[i].n] = ClassLabel;
+                        if(checkvisit[c[i].m][c[i].n]!= ClassLabel){
+							checkvisit[c[i].m][c[i].n] = ClassLabel;
+								checkmatrix[j] = c[i].m * width + c[i].n;
                                 /*printf("push c(%d,%d)",c[i].m,c[i].n); */
                                 push(&tail,c[i]);
                                 *NumConPixels += 1;
+								j = j + 1;
                         }
                 }
         }
         retrieve = pop(&head);
-        printf("POP(%d ,%d)\n", retrieve.m,retrieve.n );
-        }
+        /*printf("POP(%d ,%d)\n", retrieve.m,retrieve.n );*/
+}
+
+ if(*NumConPixels > 100) {
+	j = 0;
+	*large_area_number += 1;
+	printf("\n=======================================\n");
+	printf("Group Num: %d \n", *large_area_number);
+	while (checkmatrix[j] != -1) {
+		coordwidth = checkmatrix[j] % width;
+		coordheight = (checkmatrix[j] - coordwidth)/width;
+		printf("(%d, %d) ", coordheight, coordwidth);
+		seg[coordheight][coordwidth] = ClassLabel;
+		j++;	
+    }
+	printf("\n=======================================\n");
+} 
+ free(checkmatrix);
+
 }

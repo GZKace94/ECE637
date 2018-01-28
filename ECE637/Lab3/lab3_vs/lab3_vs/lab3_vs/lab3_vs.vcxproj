@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1F9532FC-DB0E-4355-ACCD-B6BB5CBC6076}</ProjectGuid>
-    <RootNamespace>lab3_vs</RootNamespace>
+    <ProjectGuid>{ED7B8BE1-ED17-471B-B46F-9DBDA9C9560A}</ProjectGuid>
+    <RootNamespace>Lab3_vs</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -111,22 +111,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\C-code_Section1\allocate.c" />
-    <ClCompile Include="..\..\..\C-code_Section1\Example.c" />
-    <ClCompile Include="..\..\..\C-code_Section1\randlib.c" />
+    <ClCompile Include="..\..\..\C-code_Section1\Example2.c" />
     <ClCompile Include="..\..\..\C-code_Section1\solve.c" />
     <ClCompile Include="..\..\..\C-code_Section1\subroutines.c" />
     <ClCompile Include="..\..\..\C-code_Section1\tiff.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\C-code_Section1\allocate.h" />
-    <ClInclude Include="..\..\..\C-code_Section1\randlib.h" />
     <ClInclude Include="..\..\..\C-code_Section1\solve.h" />
     <ClInclude Include="..\..\..\C-code_Section1\subroutines.h" />
     <ClInclude Include="..\..\..\C-code_Section1\tiff.h" />
     <ClInclude Include="..\..\..\C-code_Section1\typeutil.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\C-code_Section1\Example" />
+    <Image Include="..\..\..\C-code_Section1\img22gd2.tif" />
+    <Image Include="..\..\..\C-code_Section1\seg_img.tif" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="..\..\..\C-code_Section1\Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

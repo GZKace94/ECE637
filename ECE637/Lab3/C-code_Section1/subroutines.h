@@ -28,6 +28,6 @@ void ConnectedNeighbors(struct pixel s,double T,
 
 void ConnectedSet(struct pixel s,double T,
                 unsigned char **img,int width,int height,
-                int ClassLabel,uint8_t **seg,
+                int ClassLabel, uint8_t **seg, uint8_t **checkvisit,
                 int *NumConPixels);
 #endif
