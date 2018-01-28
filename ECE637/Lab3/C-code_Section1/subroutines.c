@@ -62,15 +62,16 @@ if (s.n == width - 1){
 }
 }
 
-void push(node_t * head, struct pixel val) {
-    node_t * current = head;
-    while (current->next != NULL) {
-        current = current->next;
-    }
-    /* now we can add a new variable */
-    current->next = malloc(sizeof(node_t));
-    current->next->val = val;
-    current->next->next = NULL;
+void push(node_t ** tail, struct pixel val) {
+	node_t * temp = NULL;
+	if (*tail == NULL) {
+		printf("fail to push!");
+	}
+	(*tail)->next = malloc(sizeof(node_t));
+	temp = (*tail)->next;
+	temp->val = val;
+	temp->next = NULL;
+	*tail = temp;
 }
 
 struct pixel pop(node_t ** head) {
@@ -99,12 +100,14 @@ int times = 1;
 struct pixel retrieve;
 /* use link list to store */
 node_t * head = NULL;
+node_t * tail = NULL;
 head = malloc(sizeof(node_t));
 if (head == NULL) {
         printf("No head!");
 }
 head->val = s;
 head->next = NULL;
+tail = head;
 
 *NumConPixels = 1;
 seg[head->val.m][head->val.n] = ClassLabel;
@@ -116,7 +119,7 @@ while (head!= NULL || times ==1 ){
                         if(seg[c[i].m][c[i].n]!= ClassLabel){
                                 seg[c[i].m][c[i].n] = ClassLabel;
                                 /*printf("push c(%d,%d)",c[i].m,c[i].n); */
-                                push(head,c[i]);
+                                push(&tail,c[i]);
                                 *NumConPixels += 1;
                         }
                 }

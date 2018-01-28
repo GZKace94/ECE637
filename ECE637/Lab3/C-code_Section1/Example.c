@@ -17,7 +17,7 @@ int main (int argc, char **argv)
   double **img1;
   double T;
   int connect_num;
-  int ClassLabel = 254;
+  int ClassLabel = 255;
   int neighbor_num;
   int32_t i,j;
 
