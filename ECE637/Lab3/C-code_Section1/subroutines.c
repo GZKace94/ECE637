@@ -103,21 +103,25 @@ int i, j, coordheight, coordwidth, n;
 int times = 1;
 struct pixel retrieve;
 int *checkmatrix;
-/* use link list to store */
+
+*NumConPixels = 0;
+j = 0;
+
+/* head and tail initialization */
 node_t * head = NULL;
 node_t * tail = NULL;
 
-n = width * height;
 head = malloc(sizeof(node_t));
 head->val = s;
 head->next = NULL;
 tail = head;
 
+/*allocate space for array, 
+which is used to check store set points in one loop*/
+n = width * height;
 alloc1d(checkmatrix, -1, n);
 
-*NumConPixels = 0;
 
-j = 0;
 while (head!= NULL || times ==1 ){
         times = 2;
         ConnectedNeighbors (head->val,T,img,width,height, &neighbor_num, c);
@@ -126,7 +130,6 @@ while (head!= NULL || times ==1 ){
                         if(checkvisit[c[i].m][c[i].n]!= ClassLabel){
 							checkvisit[c[i].m][c[i].n] = ClassLabel;
 								checkmatrix[j] = c[i].m * width + c[i].n;
-                                /*printf("push c(%d,%d)",c[i].m,c[i].n); */
                                 push(&tail,c[i]);
                                 *NumConPixels += 1;
 								j = j + 1;
@@ -134,9 +137,8 @@ while (head!= NULL || times ==1 ){
                 }
         }
         retrieve = pop(&head);
-        /*printf("POP(%d ,%d)\n", retrieve.m,retrieve.n );*/
 }
-
+/*find out if the set has more than 100 pixels*/
  if(*NumConPixels > 100) {
 	j = 0;
 	*large_area_number += 1;

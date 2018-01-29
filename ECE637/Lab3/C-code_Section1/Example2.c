@@ -7,7 +7,7 @@
 #include "subroutines.h"
 
 void error(char *name);
-ss
+
 int main (int argc, char **argv)
 {
   FILE *fp;
@@ -56,12 +56,16 @@ int main (int argc, char **argv)
   }
 
   printf("Threshold T is: %d\n", T);
-/*for(i = 0; i<9; i++){
-for(j = 0; j<9; j++){
-  printf("%d ", input_img.mono[i][j]);
-}
-  printf("\n");
-} */
+/* code for prob1*/
+  /*(col,row)*/
+  /*
+  single_pixel.n = 67;  
+  single_pixel.m = 45;  
+  ConnectedSet(single_pixel, T, input_img.mono, input_img.width, input_img.height,
+	  ClassLabel, seg_img.mono, checkvisit.mono, &connect_num, &large_conn_num);
+  printf("Connected number = %d ", connect_num);  
+ */
+/* code for prob2*/
 
 for (i = 0; i<input_img.height; i++) 
 	for (j = 0; j<input_img.width; j++) {
@@ -73,7 +77,7 @@ for (i = 0; i<input_img.height; i++)
 		}
 	}
  printf("large connected sets number = %d ", large_conn_num);
-
+ 
   /* open image file */
   if ( ( fp = fopen ( "segmentation.tif", "wb" ) ) == NULL ) {
     fprintf ( stderr, "cannot open file seg_img.tif\n");
@@ -89,7 +93,7 @@ for (i = 0; i<input_img.height; i++)
   /* close image file */
   fclose ( fp );
 
-  if ((fp = fopen("compare_img.tif", "wb")) == NULL) {
+  if ((fp = fopen("seg_img_without_filter.tif", "wb")) == NULL) {
 	  fprintf(stderr, "cannot open file cmpare_img.tif\n");
 	  exit(1);
   }
