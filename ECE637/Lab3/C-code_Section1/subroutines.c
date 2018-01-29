@@ -122,7 +122,7 @@ while (head!= NULL || times ==1 ){
         times = 2;
         ConnectedNeighbors (head->val,T,img,width,height, &neighbor_num, c);
         for (i =0; i < 4; i++){
-                if (c[i].m!=-1 && c[i].m!=-1){
+                if (c[i].m!=-1 && c[i].n!=-1){
                         if(checkvisit[c[i].m][c[i].n]!= ClassLabel){
 							checkvisit[c[i].m][c[i].n] = ClassLabel;
 								checkmatrix[j] = c[i].m * width + c[i].n;
