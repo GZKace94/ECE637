@@ -116,7 +116,7 @@ head->val = s;
 head->next = NULL;
 tail = head;
 
-/*allocate space for array, 
+/*allocate space for array,
 which is used to check store set points in one loop*/
 n = width * height;
 alloc1d(checkmatrix, -1, n);
@@ -149,10 +149,10 @@ while (head!= NULL || times ==1 ){
 		coordheight = (checkmatrix[j] - coordwidth)/width;
 		printf("(%d, %d) ", coordheight, coordwidth);
 		seg[coordheight][coordwidth] = ClassLabel;
-		j++;	
+		j++;
     }
 	printf("\n=======================================\n");
-} 
+}
  free(checkmatrix);
 
 }

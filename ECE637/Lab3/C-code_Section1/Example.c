@@ -11,14 +11,12 @@ void error(char *name);
 int main (int argc, char **argv)
 {
   FILE *fp;
-  struct TIFF_img input_img, seg_img;
+  struct TIFF_img input_img, seg_img, checkvisit;
   struct pixel single_pixel;
-  struct pixel c[4];
-  double **img1;
   double T;
   int connect_num;
-  int ClassLabel = 255;
-  int neighbor_num;
+  int ClassLabel = 0;
+  int large_conn_num = 0;
   int32_t i,j;
 
   if ( argc != 3 ) error( argv[0] );
@@ -44,44 +42,49 @@ int main (int argc, char **argv)
     exit ( 1 );
   }
 
-  /* Allocate image of double precision floats
-  Extend the image for filtering*/
-  img1 = (double **)get_img(input_img.width,input_img.height,sizeof(double));
+
   /* set up structure for output achromatic image */
   /* to allocate a full color image use type 'c' */
   get_TIFF ( &seg_img, input_img.height, input_img.width, 'g' );
+  get_TIFF( &checkvisit, input_img.height, input_img.width, 'g');
 
   for(i = 0; i<input_img.height; i++)
   for(j = 0; j<input_img.width; j++){
-    seg_img.mono[i][j] = 0;
+    seg_img.mono[i][j] = 255;
+	checkvisit.mono[i][j] = 255;
   }
 
-  printf("image dimensions: height:%d  width: %d\n",input_img.height, input_img.width );
-for(i = 0; i<9; i++){
-for(j = 0; j<9; j++){
-  printf("%d ", input_img.mono[i+63][j+41]);
-}
-  printf("\n");
-}
+  printf("Threshold T is: %f\n", T);
+/* code for prob1*/
+  /*(col,row)*/
+  /*
+  single_pixel.n = 67;
+  single_pixel.m = 45;
+  ConnectedSet(single_pixel, T, input_img.mono, input_img.width, input_img.height,
+	  ClassLabel, seg_img.mono, checkvisit.mono, &connect_num, &large_conn_num);
+  printf("Connected number = %d ", connect_num);
+ */
+/* code for prob2*/
 
-  single_pixel.m = 67;
-  single_pixel.n = 45;
-
-  ConnectedSet(single_pixel,T,input_img.mono,input_img.width,input_img.height,
-    ClassLabel,seg_img.mono, &connect_num);
-   printf("Connected number: %d\n",connect_num);
-
-
-
+for (i = 0; i<input_img.height; i++)
+	for (j = 0; j<input_img.width; j++) {
+		single_pixel.m = i;
+		single_pixel.n = j;
+		if (checkvisit.mono[i][j] != ClassLabel) {
+			ConnectedSet(single_pixel, T, input_img.mono, input_img.width, input_img.height,
+				ClassLabel, seg_img.mono, checkvisit.mono, &connect_num, &large_conn_num);
+		}
+	}
+ printf("large connected sets number = %d ", large_conn_num);
 
   /* open image file */
-  if ( ( fp = fopen ( "seg_img.tif", "wb" ) ) == NULL ) {
+  if ( ( fp = fopen ( "segmentation.tif", "wb" ) ) == NULL ) {
     fprintf ( stderr, "cannot open file seg_img.tif\n");
     exit ( 1 );
   }
 
   /* write image */
-  if ( write_TIFF ( fp, &seg_img ) ) {
+  if ( write_TIFF ( fp, &seg_img) ) {
     fprintf ( stderr, "error writing TIFF file %s\n", argv[2] );
     exit ( 1 );
   }
@@ -89,12 +92,26 @@ for(j = 0; j<9; j++){
   /* close image file */
   fclose ( fp );
 
+  if ((fp = fopen("seg_img_without_filter.tif", "wb")) == NULL) {
+	  fprintf(stderr, "cannot open file cmpare_img.tif\n");
+	  exit(1);
+  }
+
+  /* write image */
+  if (write_TIFF(fp, &checkvisit)) {
+	  fprintf(stderr, "error writing TIFF file %s\n", argv[2]);
+	  exit(1);
+  }
+
+  /* close image file */
+  fclose(fp);
+
 
 
   /* de-allocate space which was used for the images */
   free_TIFF ( &(input_img) );
   free_TIFF ( &(seg_img) );
-  free_img( (void**)img1 );
+  free_TIFF(&(checkvisit));
 
   return(0);
 }
