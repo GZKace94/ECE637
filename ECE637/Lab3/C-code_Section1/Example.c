@@ -50,33 +50,33 @@ int main (int argc, char **argv)
 
   for(i = 0; i<input_img.height; i++)
   for(j = 0; j<input_img.width; j++){
-    seg_img.mono[i][j] = 255;
-	checkvisit.mono[i][j] = 255;
+    seg_img.mono[i][j] = 0;
+	checkvisit.mono[i][j] = 0;
   }
 
   printf("Threshold T is: %f\n", T);
 /* code for prob1*/
   /*(col,row)*/
-  /*
+
   single_pixel.n = 67;
   single_pixel.m = 45;
   ConnectedSet(single_pixel, T, input_img.mono, input_img.width, input_img.height,
 	  ClassLabel, seg_img.mono, checkvisit.mono, &connect_num, &large_conn_num);
   printf("Connected number = %d ", connect_num);
- */
-/* code for prob2*/
 
+/* code for prob2*/
+/*
 for (i = 0; i<input_img.height; i++)
 	for (j = 0; j<input_img.width; j++) {
 		single_pixel.m = i;
 		single_pixel.n = j;
-		if (checkvisit.mono[i][j] != ClassLabel) {
+		if (checkvisit.mono[i][j] != 255) {
 			ConnectedSet(single_pixel, T, input_img.mono, input_img.width, input_img.height,
 				ClassLabel, seg_img.mono, checkvisit.mono, &connect_num, &large_conn_num);
 		}
 	}
- printf("large connected sets number = %d ", large_conn_num);
-
+ printf("large connected sets number = %d \n", large_conn_num);
+*/
   /* open image file */
   if ( ( fp = fopen ( "segmentation.tif", "wb" ) ) == NULL ) {
     fprintf ( stderr, "cannot open file seg_img.tif\n");

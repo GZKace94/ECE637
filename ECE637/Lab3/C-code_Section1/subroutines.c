@@ -127,12 +127,12 @@ while (head!= NULL || times ==1 ){
         ConnectedNeighbors (head->val,T,img,width,height, &neighbor_num, c);
         for (i =0; i < 4; i++){
                 if (c[i].m!=-1 && c[i].n!=-1){
-                        if(checkvisit[c[i].m][c[i].n]!= ClassLabel){
-							checkvisit[c[i].m][c[i].n] = ClassLabel;
-								checkmatrix[j] = c[i].m * width + c[i].n;
+                        if(checkvisit[c[i].m][c[i].n]!= 255){
+				checkvisit[c[i].m][c[i].n] = 255;
+				checkmatrix[j] = c[i].m * width + c[i].n;
                                 push(&tail,c[i]);
                                 *NumConPixels += 1;
-								j = j + 1;
+				j = j + 1;
                         }
                 }
         }
@@ -140,6 +140,7 @@ while (head!= NULL || times ==1 ){
 }
 /*find out if the set has more than 100 pixels*/
  if(*NumConPixels > 100) {
+         static int seq  = 1;
 	j = 0;
 	*large_area_number += 1;
 	printf("\n=======================================\n");
@@ -148,9 +149,10 @@ while (head!= NULL || times ==1 ){
 		coordwidth = checkmatrix[j] % width;
 		coordheight = (checkmatrix[j] - coordwidth)/width;
 		printf("(%d, %d) ", coordheight, coordwidth);
-		seg[coordheight][coordwidth] = ClassLabel;
+		seg[coordheight][coordwidth] = 255;
 		j++;
-    }
+        }
+        seq += 1;
 	printf("\n=======================================\n");
 }
  free(checkmatrix);
