@@ -15,48 +15,43 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\C-code_Section1\allocate.c">
+    <ClCompile Include="..\..\..\Lab7_ux\allocate.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\C-code_Section1\solve.c">
+    <ClCompile Include="..\..\..\Lab7_ux\Example.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\C-code_Section1\subroutines.c">
+    <ClCompile Include="..\..\..\Lab7_ux\filter.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\C-code_Section1\tiff.c">
+    <ClCompile Include="..\..\..\Lab7_ux\randlib.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\C-code_Section1\Example.c">
+    <ClCompile Include="..\..\..\Lab7_ux\solve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Lab7_ux\tiff.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\C-code_Section1\allocate.h">
+    <ClInclude Include="..\..\..\Lab7_ux\allocate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\C-code_Section1\solve.h">
+    <ClInclude Include="..\..\..\Lab7_ux\filter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\C-code_Section1\subroutines.h">
+    <ClInclude Include="..\..\..\Lab7_ux\randlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\C-code_Section1\tiff.h">
+    <ClInclude Include="..\..\..\Lab7_ux\solve.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\C-code_Section1\typeutil.h">
+    <ClInclude Include="..\..\..\Lab7_ux\tiff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\C-code_Section1\img22gd2.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\C-code_Section1\seg_img.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\C-code_Section1\Makefile" />
+    <ClInclude Include="..\..\..\Lab7_ux\typeutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

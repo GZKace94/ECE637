@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{ED7B8BE1-ED17-471B-B46F-9DBDA9C9560A}</ProjectGuid>
-    <RootNamespace>Lab3_vs</RootNamespace>
+    <ProjectGuid>{7A035F81-EB9D-4654-854B-8869AC9295FC}</ProjectGuid>
+    <RootNamespace>Lab7_proj</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -80,7 +80,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -110,25 +110,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\C-code_Section1\allocate.c" />
-    <ClCompile Include="..\..\..\C-code_Section1\Example.c" />
-    <ClCompile Include="..\..\..\C-code_Section1\solve.c" />
-    <ClCompile Include="..\..\..\C-code_Section1\subroutines.c" />
-    <ClCompile Include="..\..\..\C-code_Section1\tiff.c" />
+    <ClCompile Include="..\..\..\Lab7_ux\allocate.c" />
+    <ClCompile Include="..\..\..\Lab7_ux\Example.c" />
+    <ClCompile Include="..\..\..\Lab7_ux\filter.c" />
+    <ClCompile Include="..\..\..\Lab7_ux\randlib.c" />
+    <ClCompile Include="..\..\..\Lab7_ux\solve.c" />
+    <ClCompile Include="..\..\..\Lab7_ux\tiff.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\C-code_Section1\allocate.h" />
-    <ClInclude Include="..\..\..\C-code_Section1\solve.h" />
-    <ClInclude Include="..\..\..\C-code_Section1\subroutines.h" />
-    <ClInclude Include="..\..\..\C-code_Section1\tiff.h" />
-    <ClInclude Include="..\..\..\C-code_Section1\typeutil.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\C-code_Section1\img22gd2.tif" />
-    <Image Include="..\..\..\C-code_Section1\seg_img.tif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\C-code_Section1\Makefile" />
+    <ClInclude Include="..\..\..\Lab7_ux\allocate.h" />
+    <ClInclude Include="..\..\..\Lab7_ux\filter.h" />
+    <ClInclude Include="..\..\..\Lab7_ux\randlib.h" />
+    <ClInclude Include="..\..\..\Lab7_ux\solve.h" />
+    <ClInclude Include="..\..\..\Lab7_ux\tiff.h" />
+    <ClInclude Include="..\..\..\Lab7_ux\typeutil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

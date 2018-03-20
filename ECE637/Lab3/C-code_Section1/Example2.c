@@ -13,10 +13,11 @@ int main (int argc, char **argv)
   FILE *fp;
   struct TIFF_img input_img, seg_img, checkvisit;
   struct pixel single_pixel;
+  struct pixel c[4];
   double T;
   int connect_num;
   int ClassLabel = 0;
-  int large_conn_num = 0;
+  int neighbor_num, large_conn_num = 0;
   int32_t i,j;
 
   if ( argc != 3 ) error( argv[0] );
@@ -54,29 +55,29 @@ int main (int argc, char **argv)
 	checkvisit.mono[i][j] = 0;
   }
 
-  printf("Threshold T is: %f\n", T);
+  printf("Threshold T is: %d\n", T);
 /* code for prob1*/
   /*(col,row)*/
-/*
-  single_pixel.n = 67;
-  single_pixel.m = 45;
+ /*
+  single_pixel.n = 67;  
+  single_pixel.m = 45;  
   ConnectedSet(single_pixel, T, input_img.mono, input_img.width, input_img.height,
 	  ClassLabel, seg_img.mono, checkvisit.mono, &connect_num, &large_conn_num);
-  printf("Connected number = %d ", connect_num);
-  */
+  printf("Connected number = %d ", connect_num);  
+*/
 /* code for prob2*/
 
-for (i = 0; i<input_img.height; i++)
+for (i = 0; i<input_img.height; i++) 
 	for (j = 0; j<input_img.width; j++) {
 		single_pixel.m = i;
 		single_pixel.n = j;
-		if (checkvisit.mono[i][j] != 255) {
+		if (checkvisit.mono[i][j] != ClassLabel) {
 			ConnectedSet(single_pixel, T, input_img.mono, input_img.width, input_img.height,
 				ClassLabel, seg_img.mono, checkvisit.mono, &connect_num, &large_conn_num);
 		}
 	}
- printf("large connected sets number = %d \n", large_conn_num);
-
+ printf("large connected sets number = %d ", large_conn_num);
+ 
   /* open image file */
   if ( ( fp = fopen ( "segmentation.tif", "wb" ) ) == NULL ) {
     fprintf ( stderr, "cannot open file seg_img.tif\n");

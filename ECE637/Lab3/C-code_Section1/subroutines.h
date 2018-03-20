@@ -10,7 +10,6 @@
 #include "typeutil.h"
 #include "subroutines.h"
 
-
 struct pixel{
   int m,n;  /* m = row,which is height,n = col, which is column*/
 };

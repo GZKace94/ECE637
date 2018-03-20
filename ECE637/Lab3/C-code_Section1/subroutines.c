@@ -128,8 +128,8 @@ while (head!= NULL || times ==1 ){
         for (i =0; i < 4; i++){
                 if (c[i].m!=-1 && c[i].n!=-1){
                         if(checkvisit[c[i].m][c[i].n]!= 255){
-				checkvisit[c[i].m][c[i].n] = 255;
-				checkmatrix[j] = c[i].m * width + c[i].n;
+								checkvisit[c[i].m][c[i].n] = 255;
+								checkmatrix[j] = c[i].m * width + c[i].n;
                                 push(&tail,c[i]);
                                 *NumConPixels += 1;
 				j = j + 1;
@@ -149,7 +149,7 @@ while (head!= NULL || times ==1 ){
 		coordwidth = checkmatrix[j] % width;
 		coordheight = (checkmatrix[j] - coordwidth)/width;
 		printf("(%d, %d) ", coordheight, coordwidth);
-		seg[coordheight][coordwidth] = 255;
+		seg[coordheight][coordwidth] = seq;
 		j++;
         }
         seq += 1;
