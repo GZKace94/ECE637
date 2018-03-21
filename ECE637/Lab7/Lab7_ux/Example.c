@@ -14,6 +14,18 @@ int main (int argc, char **argv)
   struct TIFF_img input_img, filtered_img, expend_img;
   double **img1;
   int32_t i,j;
+  int weightmatrix[5][5] = { {1,1,1,1,1},
+							 {1,2,2,2,1},
+							 {1,2,3,2,1},
+							 {1,2,2,2,1},
+							 {1,1,1,1,1}};
+  
+  int test[5][5] = { { 1,1,1,1,1 },
+  { 1,3,3,3,1 },
+  { 1,3,5,3,1 },
+  { 1,3,3,3,1 },
+  { 1,1,1,1,1 } };
+
 
   if ( argc != 2 ) error( argv[0] );
 
@@ -57,8 +69,31 @@ int main (int argc, char **argv)
   expend_img.mono[i][j] = img1[i][j];
   }
   /*
-  WMfilter(expend_img.mono, filtered_img.mono,expend_img.height,expend_img.width);
+  int reshapeWM[25];
+  int reshapetest[25];
+  for (int i = 0; i < 5; i++) {
+  for (int j = 0; j < 5; j++) {
+  int t = weightmatrix[i][j];
+  reshapeWM[5 * i + j] = t;
+  reshapetest[5 * i + j] = test[i][j];
+
+  }
+  }
+  insertion_sort(reshapeWM, reshapetest, 25);
+  printf("\n");
+  for (int j = 0; j < 25; j++) {
+	  printf("%d ", reshapeWM[j]);
+  }
+
+  printf("\n");
+  for (int j = 0; j < 25; j++) {
+	  printf("%d ", reshapetest[j]);
+  }
   */
+ 
+ WMfilter(expend_img.mono, filtered_img.mono,expend_img.height,expend_img.width,weightmatrix);
+
+  /*int val = WeightedMedianVal(reshapeWM, expend_img.mono, 513, 769);*/
   
 
   /* open image file */
