@@ -18,17 +18,17 @@ void insertion_sort(int arr[], int weight[], int len)
 }
 
 
-int WeightedMedianVal(int reshapea[25], uint8_t **orig_img, int coodx, int coody)
+int WeightedMedianVal(int reshapea[25], 
+	uint8_t **orig_img, int coodx, int coody)
 {
 	int reshapeX[25];
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			reshapeX[5 * i + j] = orig_img[coodx - 2 + i][coody - 2 + j];
+			reshapeX[5 * i + j] = \
+				orig_img[coodx - 2 + i][coody - 2 + j];
 		}
 	}
-
 	insertion_sort(reshapeX, reshapea, 25);
-	
 	int sum1 = 0;
 	int sum2 = 34;
 	for (int i = 0; i < 25; i++) {
@@ -38,12 +38,12 @@ int WeightedMedianVal(int reshapea[25], uint8_t **orig_img, int coodx, int coody
 			return reshapeX[i];
 		}
 	}
-
 	return -1;
 }
 
-void WMfilter(uint8_t **original_img, uint8_t **filtered_img,int height, int width,
-			  int weightmatrix[5][5])
+void WMfilter(uint8_t **original_img, 
+	uint8_t **filtered_img,int height, int width,
+			int weightmatrix[5][5])
 {
 	int reshapeWM[25];
 
@@ -55,11 +55,12 @@ void WMfilter(uint8_t **original_img, uint8_t **filtered_img,int height, int wid
 	}
 	for (int i = 0; i < height; i++)
 		for (int j = 0; j < width; j++) {
-			if (i >= 2 && j >= 2 && i < height - 2 && j < width - 2) {
-				filtered_img[i - 2][j - 2] = WeightedMedianVal(reshapeWM, original_img, i, j);
+			if (i >= 2 && j >= 2 && \
+				i < height - 2 && j < width - 2) {
+				filtered_img[i - 2][j - 2] = \
+			    WeightedMedianVal(reshapeWM, original_img, i, j);
 			}
 		}
-
 }
 
 
