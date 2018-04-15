@@ -24,7 +24,7 @@
     <ClCompile Include="..\..\Lab9_ux\JPEGutil.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Lab9_ux\JPEGutil-old.c">
+    <ClCompile Include="..\..\Lab9_ux\JPEGutil2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "Htables.h"
+#include "JPEGdefs.h"
 
 #define SOI  0xFFD8   /* Start of image marker */
 #define SOF0 0xFFC0   /* Start of frame marker */
