@@ -14,6 +14,17 @@ int main (int argc, char **argv)
   struct TIFF_img input_img, filtered_img, expend_img;
   double **img1;
   int32_t i,j;
+  int weightmatrix[5][5] = { {1,1,1,1,1},
+							 {1,2,2,2,1},
+							 {1,2,3,2,1},
+							 {1,2,2,2,1},
+							 {1,1,1,1,1}};
+  
+  int test[5][5] = { { 1,1,1,1,1 },
+  { 1,3,3,3,1 },
+  { 1,3,5,3,1 },
+  { 1,3,3,3,1 },
+  { 1,1,1,1,1 } };
 
   if ( argc != 2 ) error( argv[0] );
 
@@ -40,7 +51,8 @@ int main (int argc, char **argv)
 
   /* Allocate image of double precision floats
   Extend the image for filtering*/
-  img1 = (double **)get_img(input_img.width+4,input_img.height+4,sizeof(double));
+  img1 = (double **)get_img(input_img.width+4,
+	  input_img.height+4,sizeof(double));
   /* set up structure for output achromatic image */
   /* to allocate a full mono image use type 'g' */
   get_TIFF ( &filtered_img, input_img.height, input_img.width, 'g' );
@@ -49,19 +61,18 @@ int main (int argc, char **argv)
   /* filter the picture*/
   for ( i = 0; i < input_img.height + 4; i++ )
   for ( j = 0; j < input_img.width + 4; j++ ) {
-    if ( i >= 2 && j >= 2 && i < input_img.height+2 && j < input_img.width+2){
+    if ( i >= 2 && j >= 2 && i < input_img.height+2 
+		&& j < input_img.width+2){
       img1[i][j] = input_img.mono[i-2][j-2];
     } else {
     img1[i][j] = 0;
   }
   expend_img.mono[i][j] = img1[i][j];
   }
-  /*
-  WMfilter(expend_img.mono, filtered_img.mono,expend_img.height,expend_img.width);
-  */
-  
+  WMfilter(expend_img.mono, filtered_img.mono, 
+	  expend_img.height, expend_img.width, weightmatrix);
 
-  /* open image file */
+ /* open image file */
   if ( ( fp = fopen ( "filgered_img.tif", "wb" ) ) == NULL ) {
     fprintf ( stderr, "cannot open file filtered_img.tif\n");
     exit ( 1 );
