@@ -1,0 +1,138 @@
+[33mcommit 28730f0c9c579ef1a977b375db197bed18db81ef[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mME637[m[33m)[m
+Author: Zekun <gong105@purdue.edu>
+Date:   Fri Apr 13 00:41:04 2018 -0400
+
+    ga
+
+[33mcommit 869047bedf61cc57f66d9120dd5f7880986ca471[m
+Author: Zekun <gong105@purdue.edu>
+Date:   Tue Mar 20 22:25:28 2018 -0400
+
+    Lab7
+
+[33mcommit 286020f42b9991c9a399f1e10a45e6dc3500b0df[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Tue Mar 20 18:14:23 2018 -0400
+
+    Lab7
+
+[33mcommit f1a8f9d96b9b1fd68adb50947d70c471cdccec90[m
+Author: Zekun <zkgong94@163.com>
+Date:   Wed Jan 31 12:53:22 2018 -0500
+
+    Modify P2
+
+[33mcommit 4ffb72aa457b717659291c12d5d2681ece17af78[m
+Author: Zekun <zkgong94@163.com>
+Date:   Mon Jan 29 21:55:16 2018 -0500
+
+    ubuntu_version
+
+[33mcommit 530c4a36cb6c45b4230923d18f039a8c582db0ed[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Mon Jan 29 16:11:18 2018 -0500
+
+    combine p1 p2 into one Example2 file
+
+[33mcommit 278284f6ef3b932f27081eef5785d1742bf7737b[m
+Author: GZKace94 <35355321+GZKace94@users.noreply.github.com>
+Date:   Mon Jan 29 12:41:03 2018 -0500
+
+    Update subroutines.c
+
+[33mcommit 638b51f2f983f6dd8a6b0d2c57a59ea7423c75e0[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sun Jan 28 16:56:59 2018 -0500
+
+    finsh Prob2
+
+[33mcommit 634ebadff797d506db6caf994e926f1e27ac4585[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sun Jan 28 16:47:59 2018 -0500
+
+    Change for prob.2
+
+[33mcommit 9b6557109fdc12ad2ed4534bcf780c4b173a22df[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sun Jan 28 13:10:54 2018 -0500
+
+    optimize
+
+[33mcommit 6f5ba290d8a1f682dcf4834221ecb65169b0cfdb[m
+Author: Zekun <zkgong94@163.com>
+Date:   Sat Jan 27 23:33:21 2018 -0500
+
+    Lab3_Jan27
+
+[33mcommit 91c4eba0b816da0d69bf235dc3b59965c5e24be5[m
+Author: GZKace94 <35355321+GZKace94@users.noreply.github.com>
+Date:   Sat Jan 20 17:27:26 2018 -0500
+
+    PDF file upload
+
+[33mcommit 59d907ce4044b11e4c6b494706b204dcd6e76426[m
+Author: GZKace94 <35355321+GZKace94@users.noreply.github.com>
+Date:   Sat Jan 20 17:25:40 2018 -0500
+
+    Update Example.c
+
+[33mcommit ab2dd054bae1ebd9442da3972bb41fa28ab6d6ce[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sat Jan 20 17:21:59 2018 -0500
+
+    Prepare for Lab2
+
+[33mcommit 1a3f959725d9d578d923e99061b104bb72c90b54[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sat Jan 20 17:10:20 2018 -0500
+
+    add pic
+
+[33mcommit 626d525d9cd060561259fe2c81cc5077ed1ec45a[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sat Jan 20 17:05:11 2018 -0500
+
+    test change
+
+[33mcommit 77ff96c616debd67fafb400def6c7a5fd304efd6[m
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sat Jan 20 16:59:24 2018 -0500
+
+    Add lab2
+
+[33mcommit 5e7e3610ea20528bc408ee9d382a3a7ff056145c[m
+Merge: 65ba3ca 8f97367
+Author: gong105 <gong105@ME2038PC06>
+Date:   Sat Jan 20 16:54:40 2018 -0500
+
+    Merge branch 'master' of https://github.com/GZKace94/ECE637.git
+
+[33mcommit 65ba3cab8bb0496355ebf7fc3c3393a46a3c55f6[m
+Author: GZKace94 <35355321+GZKace94@users.noreply.github.com>
+Date:   Thu Jan 18 20:23:51 2018 -0500
+
+    Create READ.ME
+
+[33mcommit 8f97367eafe7e945a410b52219fb559fd24f7137[m
+Author: GZKace94 <35355321+GZKace94@users.noreply.github.com>
+Date:   Thu Jan 18 20:23:51 2018 -0500
+
+    Create READ.ME
+
+[33mcommit 69c28f40e25b830bb2b8b107799323eeca68342c[m
+Author: Zekun <zkgong94@163.com>
+Date:   Thu Jan 18 18:17:04 2018 -0500
+
+    added my github name
+
+[33mcommit 5afa26893df70148e460d9333bb3fca993d3b314[m
+Author: Zekun <zkgong94@163.com>
+Date:   Thu Jan 18 17:52:25 2018 -0500
+
+    first commit
+
+[33mcommit cc8a1304b2d6e85ea13adee83d65e02fea8d0844[m
+Author: Zekun <zkgong94@163.com>
+Date:   Thu Jan 18 17:43:06 2018 -0500
+
+    initial commit

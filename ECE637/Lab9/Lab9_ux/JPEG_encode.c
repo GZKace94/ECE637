@@ -25,9 +25,14 @@ int main(int argc, char* argv[])
   */
   int val = atof(argv[1]);
   int bitsz = BitSize(val);
-  char block_code[5] = "acvd";
-  VLI_encode(bitsz,val,block_code);
-  printf("%s", block_code);
+  char block_code[10000] = {'a','\0'};
+  //VLI_encode(bitsz,val,block_code);
+  //printf("block_code is %s \n", block_code);
+
+  DC_encode(val, 0, block_code);
+  printf("DC_block_code is %s \n", block_code);
+
+
   //input_img = get_arguments(argc,argv,&row,&column,&gamma,&outfp) ;
 
   ///* scale global variable for quantization matrix */
