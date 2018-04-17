@@ -27,9 +27,12 @@ void ZigZag(int ** img, int y, int x, int *zigline);
 void DC_encode(int dc_value, int prev_value, char *block_code);
 
 void AC_encode(int *zigzag, char *block_code);
-/*
+
 void Block_encode(int prev_value, int *zigzag, char *block_code);
+
 int Convert_encode(char *block_code, unsigned char *byte_code);
+
+
 unsigned char Zero_pad(char *block_code);
 
-*/
+
